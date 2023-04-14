@@ -1,0 +1,21 @@
+version: 0.2
+env:
+  variables:
+    AWS_DEFAULT_REGION: us-east-2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 639962416620.dkr.ecr.us-east-2.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t m2i-react-app-todo .
+      - docker tag m2i-react-app-todo 639962416620.dkr.ecr.us-east-2.amazonaws.com/m2i-react-app-todo:latest      
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 639962416620.dkr.ecr.us-east-2.amazonaws.com/m2i-react-app-todo:latest
