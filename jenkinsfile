@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://gitlab.com/mohamed_formation_test/app-react-todo.git'
+        git 'https://github.com/formationDemo2022/react-app-todo.git'
       }
     }
 
