@@ -3,7 +3,7 @@ pipeline {
   environment {
     dockerimagename = "mohamed1780/app-react-todos"
     dockerImage = ""
-    DOCKER_BINARY = "/usr/bin/docker"
+  //  DOCKER_BINARY = "/usr/bin/docker"
   }
 
   agent any 
@@ -17,7 +17,7 @@ pipeline {
       }
     }
 
-    stage('Checkout Source') {
+/*     stage('Checkout Source') {
       steps {
         git 'https://github.com/formationDemo2022/react-app-todo.git'
       }
@@ -51,7 +51,7 @@ pipeline {
           kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
         }
       }
-    }
+    } */
 
   }
 
