@@ -15,7 +15,7 @@ pipeline {
       steps {
         sh 'docker version'
       }
-    
+    }
 
     stage('Checkout Source') {
       steps {
