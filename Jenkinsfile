@@ -3,6 +3,7 @@ pipeline {
   environment {
     dockerimagename = "mohamed1780/app-react-todos"
     dockerImage = ""
+    DOCKER_BINARY = "/usr/bin/docker"
   }
 
   agent any 
@@ -19,7 +20,7 @@ pipeline {
       agent any 
       steps{
         script {
-          dockerImage = docker.build dockerimagename
+          dockerImage = ${DOCKER_BINARY} build -t dockerimagename .
         }
       }
     }
