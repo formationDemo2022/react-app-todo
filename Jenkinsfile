@@ -15,7 +15,14 @@ pipeline {
       }
     }
 
-    stage('Build image') {
+
+    stage('Check Docker Version') {
+      steps {
+        sh 'docker version'
+      }
+    }
+
+    /* stage('Build image') {
       steps{
         script {
           dockerImage = docker.build dockerimagename
@@ -35,7 +42,7 @@ pipeline {
         }
       }
     }
-
+ */
 /*     stage('Deploying React.js container to Kubernetes') {
       steps {
         script {
