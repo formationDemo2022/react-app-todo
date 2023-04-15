@@ -20,7 +20,7 @@ pipeline {
       agent any 
       steps{
         script {
-          dockerImage = ${DOCKER_BINARY} build -t dockerimagename .
+          dockerImage = sh(script: "${DOCKER_BINARY} build -t ${dockerimagename} .", returnStdout: true).trim()
         }
       }
     }
