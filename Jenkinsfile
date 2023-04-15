@@ -14,7 +14,11 @@ pipeline {
         git 'https://github.com/formationDemo2022/react-app-todo.git'
       }
     }
-
+    
+    stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
 
     stage('Check Docker Version') {
       steps {
